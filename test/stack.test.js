@@ -37,6 +37,10 @@ describe("My stack", () => {
   });
 
   it("can pop off", () => {
-
+    stack.items[0] = "avocado";
+    stack.top = 0;
+    stack.pop("avocado");
+    expect(stack.top).toBe(-1);
+    expect(stack.peek).toBe(undefined);
   });
 });
