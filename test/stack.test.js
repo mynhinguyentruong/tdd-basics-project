@@ -1,19 +1,42 @@
 class Stack {
   constructor() {
     this.top = -1;
-    this.items = {}
+    this.items = {};
+  }
+  get peek() {
+    return this.items[this.top];
+  }
+
+  push(item) {
+    this.top += 1;
+    this.items[this.top] = item;
+  }
+
+  pop(item) {
+    this.top -= 1;
+    delete this.items[this.top];
   }
 }
 
 describe("My stack", () => {
-  it("is created empty", () => {
-    const stack = new Stack();
+  let stack;
 
-    expect(stack.top).toBe(-1);
-    expect(stack.items).toStrictEqual({})
+  beforeEach(() => {
+    stack = new Stack();
   });
 
-  it.todo("can push item to the top");
+  it("is created empty", () => {
+    expect(stack.top).toBe(-1);
+    expect(stack.items).toStrictEqual({});
+  });
 
-  it.todo("can pop off");
+  it("can push item to the top", () => {
+    stack.push("avocado");
+    expect(stack.top).toBe(0);
+    expect(stack.peek).toBe("avocado");
+  });
+
+  it("can pop off", () => {
+
+  });
 });
